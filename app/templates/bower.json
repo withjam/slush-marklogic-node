@@ -18,7 +18,8 @@
     "ml-search-ng": "~0.2.0",
     "ml-utils": "withjam/ml-utils",
     "ng-json-explorer": "8c2a0f9104",
-    "vkbeautify-wrapper": "*"
+    "vkbeautify-wrapper": "*",
+    "highcharts": "*"
   },
   "overrides": {
     "angular-highlightjs": {

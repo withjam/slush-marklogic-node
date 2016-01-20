@@ -4,14 +4,17 @@
 @icon-font-path:    "/fonts/";
 @FontAwesomePath:    "/fonts/";
 
-/* for the uiux pieces */
+/* for the uiux pieces
 @import "uiux.less";
+*/
+
+@import (inline) "@css-import-path";
 
 /* Admin design - icons for top nativation
 @import "admin.less";
 */
 
-/* Blue design 
+/* Blue design
 @import "blues.less";
 @import "blues-variables.less";
 */
@@ -187,12 +190,6 @@ footer {
 .powered {
     background: url(/images/MarkLogic-Powered-By.png) 10px 10px no-repeat transparent;
   }
-
-/*Content well*/
-.content {
-  background-color: #fff;
-  padding: 20px 0;
-}
 
 .detail {
   .desc textarea {
