@@ -4,7 +4,7 @@
   angular.module('app.login')
     .factory('loginService', LoginService);
 
-  LoginService.$inject = ['$http', '$modal', '$q', '$rootScope', '$state',
+  LoginService.$inject = ['$http', '$uibModal', '$q', '$rootScope', '$state',
     '$stateParams', 'messageBoardService'];
   function LoginService($http, $modal, $q, $rootScope, $state, $stateParams, messageBoardService) {
     var _loginMode = 'full'; // 'modal', 'top-right', or 'full'

@@ -398,6 +398,15 @@ gulp.task('serve-prod', ['build'], function() {
 });
 
 /**
+  Start server in development mode without live sync
+**/
+gulp.task('develop', ['inject','styles','less-watcher'], function() {
+    var nodeOptions = getNodeOptions('local');
+
+    $.nodemon(nodeOptions);
+});
+
+/**
  * Bump the version
  * --type=pre will bump the prerelease version *.*.*-x
  * --type=patch or no flag will bump the patch version *.*.x
