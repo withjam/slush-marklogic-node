@@ -318,7 +318,6 @@ gulp.task('init', ['checkForUpdates'], function (done) {
     {type: 'input', name: 'xccPort', message: 'XCC port?', default:8041, when: function(answers){return answers.mlVersion < 8;}},
     {type:'list', name: 'template', message: 'Select Template', choices: [
       { name: 'default', value: 'default' },
-      { name: '2-columns', value: '2column' },
       { name: '3-columns', value: '3column' },
       { name: 'Dashboard', value: 'dashboard' },
       { name: 'Full-screen map', value: 'map' },
