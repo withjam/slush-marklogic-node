@@ -35,6 +35,10 @@
         <nav class="navbar navbar-static-top" role="navigation" ng-controller="topnavCtrl as topnav" ng-cloak>
           <!-- Navbar Right Menu -->
           <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav" ng-if="!topnav.currentUser">
+              <li class="user">
+                <a ui-sref="root.login"><span class="glyphicon glyphicon-user"></span> Sign In</a></li>
+            </ul>
             <ul class="nav navbar-nav" ng-if="topnav.currentUser">
               <li>
                 <a ui-sref="dashboard.overview">
