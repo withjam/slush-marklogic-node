@@ -39,11 +39,12 @@
     return service;
   };
 
-  RootCtrl.$inject = ['messageBoardService', '$rootScope', '$scope','$templateRequest', '$compile', 'rootUtils'];
+  RootCtrl.$inject = ['messageBoardService', '$rootScope', '$scope','$templateRequest', '$compile', 'rootUtils', 'mlMapManager'];
 
-  function RootCtrl(messageBoardService, $rootScope, $scope, $templateRequest, $compile, rootUtils) {
+  function RootCtrl(messageBoardService, $rootScope, $scope, $templateRequest, $compile, rootUtils, mlMapManager) {
     var ctrl = this;
     ctrl.messageBoardService = messageBoardService;
+    ctrl.currentYear = new Date().getUTCFullYear()
 
     var miw = window.jQuery('#app-mobile-info-window').get(0);
     var miwscope = $rootScope.$new(), mobileWin;
@@ -91,27 +92,9 @@
 
     ctrl.markers = [];
 
-    $scope.$watch(function() { return ctrl.searchResults; }, function(newVal) {
-      if (newVal) {
-        // process the new markers
-        var markers = [];
-        for (var i =0; i < newVal.results.length; i++) {
-          var r = newVal.results[i].extracted.content[0].doc;
-          if (r.lat && r.long) {
-            var m = {
-              latitude: r.lat,
-              longitude: r.long,
-              title: r.name,
-              id: i,
-              content: r,
-              icon: getCategoryIcon(r.newCategory)
-            };
-            markers.push(m);
-          }
-        }
-        ctrl.markers = markers;
-      }
-    });
+    $scope.$watch(function() { return mlMapManager.markers }, function(newVal) {
+      ctrl.markers = newVal;
+    })
 
     var pixelOffset,shownMarker, winopts;
     ctrl.markerClick = function(inst,evt,marker) {
